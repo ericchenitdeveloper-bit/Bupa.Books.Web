@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+  <mat-icon>menu_book</mat-icon>
+  <span class="toolbar-title">Bupa Books</span>
+  <span class="spacer"></span>
+  <button mat-icon-button matTooltip="Sign out" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <mat-card class="action-card">
+    <mat-card-content>
+      <div class="action-row">
+        <div class="filters">
+          <h2>Books Library</h2>
+          <mat-slide-toggle [(ngModel)]="hardcoverOnly" color="primary" class="toggle">
+            Hardcover only
+          </mat-slide-toggle>
+        </div>
+        <button mat-raised-button color="primary" (click)="loadBooks()" [disabled]="loading()">
+          <mat-icon>refresh</mat-icon>
+          Load Books
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  @if (loading()) {
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+  @if (error()) {
+    <div class="error-banner">
+      <mat-icon>error_outline</mat-icon>
+      {{ error() }}
+    </div>
+  }
+
+  @for (category of categories(); track category.ageCategory) {
+    <mat-card class="category-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="category-icon">
+            {{ category.ageCategory === 'Children' ? 'child_care' : 'person' }}
+          </mat-icon>
+          {{ category.ageCategory }}
+        </mat-card-title>
+        <mat-card-subtitle>{{ category.books.length }} book(s)</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-table [dataSource]="category.books" class="books-table">
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+          <mat-cell *matCellDef="let book">{{ book.name }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+          <mat-cell *matCellDef="let book">
+            <mat-chip-set>
+              <mat-chip [class]="'chip-' + getTypeClass(book.type)" [disableRipple]="true">
+                {{ book.type }}
+              </mat-chip>
+            </mat-chip-set>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </mat-card>
+  }
+</div>

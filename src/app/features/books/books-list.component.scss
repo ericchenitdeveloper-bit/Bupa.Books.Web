@@ -1,0 +1,99 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-title {
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.content {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.action-card {
+  margin-bottom: 24px;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+  }
+}
+
+.toggle {
+  font-size: 14px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border-left: 4px solid #c62828;
+}
+
+.category-card {
+  margin-bottom: 20px;
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+  }
+}
+
+.category-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  color: #1565c0;
+}
+
+.books-table {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.chip-hardcover {
+  background-color: #e3f2fd !important;
+  color: #1565c0 !important;
+}
+
+.chip-paperback {
+  background-color: #f3e5f5 !important;
+  color: #6a1b9a !important;
+}
+
+.chip-ebook {
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
+}

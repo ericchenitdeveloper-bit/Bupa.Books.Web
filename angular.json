@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "1df496fa-1c00-4b4f-be4d-92f9fc3c807c"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -30,6 +31,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
@@ -72,7 +74,8 @@
               "buildTarget": "Bupa.Books.Web:build:production"
             },
             "development": {
-              "buildTarget": "Bupa.Books.Web:build:development"
+              "buildTarget": "Bupa.Books.Web:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -12,6 +12,8 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+Development API calls to `/api/*` are proxied to `http://localhost:5000` via `proxy.conf.json`, so keep your backend API running locally when testing login and book endpoints.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
